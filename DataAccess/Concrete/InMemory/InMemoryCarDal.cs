@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
@@ -14,11 +15,11 @@ namespace DataAccess.Concrete.InMemory
         {
             _car = new List<Car> {
 
-             new Car {CarId=1,BrandId=1,ColorId=1,DailyPrice=10000,Description="AUDİ 4 ÇEKER",ModelYear="2015"},
-             new Car {CarId=2,BrandId=1,ColorId=2,DailyPrice=8000,Description="AUDİ 2 ÇEKER",ModelYear="2017"},
-             new Car {CarId=3,BrandId=2,ColorId=1,DailyPrice=15000,Description="BMW JEEP",ModelYear="2020"},
-             new Car {CarId=4,BrandId=2,ColorId=1,DailyPrice=5000,Description="BMW TAXI",ModelYear="2010"},
-             new Car {CarId=5,BrandId=3,ColorId=2,DailyPrice=20000,Description="MERCEDES",ModelYear="2022"},
+             new Car {CarId=1,BrandId=1,ColorId=1,DailyPrice=10000,Description="MAVİ AUDİ 4 ÇEKER",ModelYear="2015"},
+             new Car {CarId=2,BrandId=1,ColorId=2,DailyPrice=8000,Description="KIRMIZI AUDİ 2 ÇEKER",ModelYear="2017"},
+             new Car {CarId=3,BrandId=2,ColorId=1,DailyPrice=15000,Description="MAVİ BMW JEEP",ModelYear="2020"},
+             new Car {CarId=4,BrandId=2,ColorId=1,DailyPrice=5000,Description="MAVİ BMW TAXI",ModelYear="2010"},
+             new Car {CarId=5,BrandId=3,ColorId=2,DailyPrice=20000,Description="KIRMIZI MERCEDES",ModelYear="2022"},
 
             };
         }
@@ -34,9 +35,19 @@ namespace DataAccess.Concrete.InMemory
             _car.Remove(carToDelete);
         }
 
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             return _car;
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Car> GetAllByBrand(int BrandId)
